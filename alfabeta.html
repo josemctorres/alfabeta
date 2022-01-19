@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Minimax game search algorithm with alpha-beta pruning</title>
+    <meta content="José Manuel Torres" name="author">
+    <meta content="Demonstration/animation of minimax game search algorithm with alpha-beta pruning using html5 and javascript"
+          name="description">
+    <meta content="minimax algorithm, Alpha-beta pruning, html5, canvas" name="keywords">
+    <style>
+        h1 {
+            font-size: 110%;
+            text-align: center;
+        }
+
+        .frmclass {
+            margin: 2px;
+            padding: 3px;
+            background: #273835;
+            color: #fff;
+            font-size: 12px;
+        }
+
+        textarea {
+            resize: none;
+            background: #ddd
+        }
+
+        #footer {
+            color: #fff;
+            padding: 3px;
+            height: 35px;
+            font-size: 10px;
+            background: #273835;
+        }
+
+        body {
+            background: #273835;
+            height: 100%;
+            font: 110% Arial, Verdana, Sans-Serif;
+        }
+
+        #page {
+            background: #FFFFFF;
+            margin: 0 auto;
+            padding: 10px 10px 10px;
+            width: 1000px;
+        }
+
+        .logo {
+            padding-left: 100px;
+        }
+
+        .hint_message {
+            font-size: 85%;
+        }
+    </style>
+
+    <script src="js/alfabeta.js">
+    </script>
+
+    <script>
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-23338012-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+</head>
+
+<body>
+<div id="page">
+    <h1>Demo: minimax game search algorithm with alpha-beta pruning (using html5, canvas, javascript, css)</h1>
+    <form name="form1" class="frmclass">
+        <table>
+            <tr>
+                <td> Enter the game tree structure:</td>
+                <td><label>
+                    <input name="treestructure" type="text" size="50"
+                               placeholder="Insert the game tree structure: a list with the number of child nodes for each internal node, ordered by level and left to right"
+                               value="3 3 3 3">
+                </label></td>
+                <td class="hint_message">
+                    (hint: insert the game tree structure composed by a list with the number of child nodes for each
+                    internal node, ordered by level and left to right)
+                </td>
+            </tr>
+            <tr>
+                <td>Enter the game tree terminal values:</td>
+                <td><label>
+                    <input name="utilvalues" type="text" size="50"
+                               placeholder="Insert the utility values for the game tree terminal/leaf nodes ordered left to right"
+                               value="3 12 8 2 4 6 14 5 2">
+                </label></td>
+                <td class="hint_message">
+                    (hint: insert the utility values for the game tree terminal/leaf nodes ordered left to right)
+                </td>
+            </tr>
+        </table>
+
+        <button type="button" value="Change game tree" onclick="create_game_tree()" name="definetree">
+            Create new game tree
+        </button>
+        <br>
+        Messages:
+        <br>
+        <label>
+            <textarea name="MyMessagesArea" readonly="readonly" wrap="hard" rows="4" cols="100"></textarea>
+        </label>
+        <br>
+
+        <button type="button" value="Step minimax" onclick="step_alphabeta_search()" name="steptab">
+            Step minimax
+        </button>
+        <button type="button" value="Run minimax" onclick="run_alphabeta_search()" name="runab">
+            Run minimax
+        </button>
+        <br>
+    </form>
+    <canvas id="canvasab" width="900" height="600">
+        Your browser does not support HTML5 Canvas!
+    </canvas>
+    <br>
+    <div id="footer">
+        <table>
+            <tr>
+                <td>© Copyright 2011, José Manuel Torres (j t o r r e s @ u f p . e d u . p t)</td>
+                <td class="logo">
+                    <a href="http://www.w3.org/html/logo/">
+                        <img src="http://www.w3.org/html/logo/badge/html5-badge-h-solo.png" width="32" height="32"
+                             alt="HTML5 Powered" title="HTML5 Powered">
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
