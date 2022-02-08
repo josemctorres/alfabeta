@@ -1,6 +1,6 @@
 /**
  * @author José Manuel Torres (jtorres@ufp.edu.pt)
- * © Copyright 2011, José Manuel Torres
+ * © Copyright 2011,2021 José Manuel Torres
  */
 /* information in each game tree node */
 var node_size = 12; // number of elements of each game tree node
